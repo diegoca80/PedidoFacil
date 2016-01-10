@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PedidoFacil</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_facebook">Entrar com Facebook</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="action_register">Registrar</string>
+    <string name="error_invalid_email">Email inválido</string>
+    <string name="error_invalid_password">Senha inválida</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_incorrect_login">Usuário ou Senha incorretos</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="permission_rationale">"Permissões de contatos são obrigatórias para preenchimento automático"</string>
+    <string name="facebook_app_id">495046197332841</string>
+</resources>
