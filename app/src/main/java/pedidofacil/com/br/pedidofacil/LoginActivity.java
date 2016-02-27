@@ -37,6 +37,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -93,6 +94,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private String email;
     private String birthday;
     private String gender;
+    private Profile profile;
+    private boolean state;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -204,6 +208,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        state = false;
+        profile = Profile.getCurrentProfile().getCurrentProfile();
+        if (profile != null) {
+            // user has logged in
+            state = true;
+            startActivity(new Intent(this,ContentActivity.class));
+        }
     }
 
     @Override
