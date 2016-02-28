@@ -6,35 +6,43 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:windowContentOverlay="@null">
 
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:windowContentOverlay="@null"
     tools:context="pedidofacil.com.br.pedidofacil.ContentActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <!--fix line of other color-->
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="2dip"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        />
+
+    <pedidofacil.com.br.pedidofacil.tabs.SlidingTabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme">
+        />
 
-        <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <!--View pager will fill all available space like weight is being set to 1-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
+    <!--<include layout="@layout/content_content" />-->
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_content" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
 
     <fragment
         android:id="@+id/fragment_navigation_drawer"
